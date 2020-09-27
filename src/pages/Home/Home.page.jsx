@@ -1,38 +1,21 @@
-import React, { useRef } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useContext, useEffect } from 'react';
+// import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-import { useAuth } from '../../providers/Auth';
+import SearchContext from '../../contexts/SearchContext';
+
+const Container = styled.div`
+  padding: 0 3rem;
+`;
 
 function HomePage() {
-  const history = useHistory();
-  const sectionRef = useRef(null);
-  const { authenticated, logout } = useAuth();
+  const { query } = useContext(SearchContext);
 
-  function deAuthenticate(event) {
-    event.preventDefault();
-    logout();
-    history.push('/');
-  }
+  useEffect(() => {
+    console.log(query);
+  }, [query]);
 
-  return (
-    <section className="homepage" ref={sectionRef}>
-      <h1>Hello stranger!</h1>
-      {authenticated ? (
-        <>
-          <h2>Good to have you back</h2>
-          <span>
-            <Link to="/" onClick={deAuthenticate}>
-              ← logout
-            </Link>
-            <span className="separator" />
-            <Link to="/secret">show me something cool →</Link>
-          </span>
-        </>
-      ) : (
-        <Link to="/login">let me in →</Link>
-      )}
-    </section>
-  );
+  return <Container>{query}</Container>;
 }
 
 export default HomePage;

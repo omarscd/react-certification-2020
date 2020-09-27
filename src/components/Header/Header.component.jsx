@@ -8,7 +8,7 @@ const Container = styled.header`
   background: ${(props) => props.theme.colors.primary};
   display: flex;
   justify-content: space-between;
-  padding: 1rem 2rem;
+  padding: 1rem;
   width: 100%;
 `;
 

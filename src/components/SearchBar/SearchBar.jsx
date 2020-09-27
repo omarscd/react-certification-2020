@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+
+import SearchContext from '../../contexts/SearchContext';
 
 const Input = styled.input``;
 
-const SearchBar = ({ defaultQuery = '' }) => {
-  const [query, setQuery] = useState(defaultQuery);
-
-  useEffect(() => {
-    console.log(query);
-  }, [query]);
+const SearchBar = () => {
+  const { query, setQuery } = useContext(SearchContext);
 
   return (
     <Input
