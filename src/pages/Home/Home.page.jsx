@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 // import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+import Layout from '../../components/Layout';
 import SearchContext from '../../contexts/SearchContext';
 import useDebounce from '../../utils/hooks/useDebounce';
 
@@ -18,7 +19,11 @@ function HomePage() {
     console.log(debouncedQuery);
   }, [debouncedQuery]);
 
-  return <Container>{debouncedQuery}</Container>;
+  return (
+    <Layout>
+      <Container>{debouncedQuery}</Container>
+    </Layout>
+  );
 }
 
 export default HomePage;
