@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+import SearchBar from '../SearchBar';
+
 const Container = styled.header`
   background: ${(props) => props.theme.colors.primary};
   display: flex;
@@ -15,6 +17,7 @@ const HeaderSection = styled.div`
 `;
 
 const HeaderElement = styled.div`
+  align-self: center;
   margin: 0;
   padding: 0 1rem;
 `;
@@ -35,13 +38,16 @@ const Header = () => {
     <Container>
       <HeaderSection>
         <HeaderElement>
-          <NavLink to="/fake-route">Test</NavLink>
+          <NavLink to="/">Open Sidebar</NavLink>
         </HeaderElement>
-        <HeaderElement>2</HeaderElement>
+        <HeaderElement>
+          <SearchBar defaultQuery="Nimrodel" />
+        </HeaderElement>
       </HeaderSection>
       <HeaderSection>
-        <HeaderElement>3</HeaderElement>
-        <HeaderElement>4</HeaderElement>
+        <HeaderElement>
+          <NavLink to="/login">Log in</NavLink>
+        </HeaderElement>
       </HeaderSection>
     </Container>
   );
