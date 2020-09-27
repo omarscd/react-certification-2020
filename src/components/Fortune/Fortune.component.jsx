@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { useFortune } from '../../utils/hooks/useFortune';
-import './Fortune.styles.css';
+import './Fortune.styles.scss';
 
 function Fortune() {
   const { fortune } = useFortune();
