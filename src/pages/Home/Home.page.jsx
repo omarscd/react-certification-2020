@@ -3,6 +3,7 @@ import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 
 import SearchContext from '../../contexts/SearchContext';
+import useDebounce from '../../utils/hooks/useDebounce';
 
 const Container = styled.div`
   padding: 0 3rem;
@@ -11,11 +12,13 @@ const Container = styled.div`
 function HomePage() {
   const { query } = useContext(SearchContext);
 
-  useEffect(() => {
-    console.log(query);
-  }, [query]);
+  const debouncedQuery = useDebounce(query, 400);
 
-  return <Container>{query}</Container>;
+  useEffect(() => {
+    console.log(debouncedQuery);
+  }, [debouncedQuery]);
+
+  return <Container>{debouncedQuery}</Container>;
 }
 
 export default HomePage;
