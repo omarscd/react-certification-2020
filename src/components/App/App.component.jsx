@@ -7,7 +7,7 @@ import LoginPage from '../../pages/Login';
 import NotFound from '../../pages/NotFound';
 import Fortune from '../Fortune';
 import Layout from '../Layout';
-import Theme from '../../Theme';
+import Theme from '../../providers/Theme';
 
 function App() {
   return (
