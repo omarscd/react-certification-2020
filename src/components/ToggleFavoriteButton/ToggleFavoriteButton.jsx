@@ -14,8 +14,7 @@ const ToggleFavoriteButton = ({ id, thumbnail, title, description }) => {
 
   useEffect(() => {
     setIsFavorite(favorites.findIndex((favorite) => favorite.id === id) !== -1);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [favorites]);
+  }, [favorites, id]);
 
   const handleOnClick = () => {
     if (isFavorite) {
