@@ -1,44 +1,50 @@
-import React, { useState, useEffect, useContext, useCallback } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
-import { AUTH_STORAGE_KEY } from '../../utils/constants';
+import { USERNAME_STORAGE_KEY } from '../../utils/constants';
 import { storage } from '../../utils/storage';
 
 const AuthContext = React.createContext(null);
 
-function useAuth() {
+const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
     throw new Error(`Can't use "useAuth" without an AuthProvider!`);
   }
   return context;
-}
+};
 
-function AuthProvider({ children }) {
+const AuthProvider = ({ children }) => {
   const [authenticated, setAuthenticated] = useState(false);
+  const [username, setUsername] = useState(undefined);
 
   useEffect(() => {
-    const lastAuthState = storage.get(AUTH_STORAGE_KEY);
-    const isAuthenticated = Boolean(lastAuthState);
+    const user = storage.get(USERNAME_STORAGE_KEY);
+    const isAuthenticated = !!user;
 
     setAuthenticated(isAuthenticated);
+    if (isAuthenticated) {
+      setUsername(user);
+    }
   }, []);
 
-  const login = useCallback(() => {
+  const login = (name) => {
     setAuthenticated(true);
-    storage.set(AUTH_STORAGE_KEY, true);
-  }, []);
+    setUsername(name);
+    storage.set(USERNAME_STORAGE_KEY, name);
+  };
 
-  const logout = useCallback(() => {
+  const logout = () => {
     setAuthenticated(false);
-    storage.set(AUTH_STORAGE_KEY, false);
-  }, []);
+    setUsername(undefined);
+    storage.remove(USERNAME_STORAGE_KEY);
+  };
 
   return (
-    <AuthContext.Provider value={{ login, logout, authenticated }}>
+    <AuthContext.Provider value={{ login, logout, authenticated, username }}>
       {children}
     </AuthContext.Provider>
   );
-}
+};
 
 export { useAuth };
 export default AuthProvider;

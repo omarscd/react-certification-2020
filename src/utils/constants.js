@@ -1,3 +1,3 @@
-const AUTH_STORAGE_KEY = 'wa_cert_authenticated';
+const USERNAME_STORAGE_KEY = 'osa-reactcert-2020-username';
 
-export { AUTH_STORAGE_KEY };
+export { USERNAME_STORAGE_KEY };

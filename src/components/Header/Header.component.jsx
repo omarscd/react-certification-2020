@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import SearchBar from '../SearchBar';
+import LoginModal from '../LoginModal';
+import { useAuth } from '../../providers/Auth';
 
 const Container = styled.header`
   background: ${(props) => props.theme.colors.primary};
@@ -38,32 +40,60 @@ const NavLink = styled(Link)`
   }
 `;
 
+const Button = styled.button`
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+
+  :hover {
+    color: #dedede;
+    transition: color 0.3s ease-in-out;
+  }
+`;
+
 const Icon = styled.img`
   margin: 0;
 `;
 
 const Header = () => {
+  const { authenticated, logout } = useAuth();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <Container>
       <HeaderSection>
         <HeaderElement>
           <NavLink to="/">Home</NavLink>
         </HeaderElement>
-        <HeaderElement>
-          <NavLink to="/favorites">Favorites</NavLink>
-        </HeaderElement>
+        {authenticated && (
+          <HeaderElement>
+            <NavLink to="/favorites">Favorites</NavLink>
+          </HeaderElement>
+        )}
         <HeaderElement>
           <SearchBar defaultQuery="Nimrodel" />
         </HeaderElement>
       </HeaderSection>
       <HeaderSection>
         <HeaderElement>
-          <NavLink to="/login">Log in</NavLink>
+          {authenticated ? (
+            <Button onClick={() => logout()}>Log out</Button>
+          ) : (
+            <Button onClick={() => setIsModalOpen(true)}>Log in</Button>
+          )}
         </HeaderElement>
         <HeaderElement>
-          <Icon src="/key-24px.svg" alt="key" />
+          {authenticated ? (
+            <Icon src="/person-24px.svg" alt="person" />
+          ) : (
+            <Icon src="/key-24px.svg" alt="key" />
+          )}
         </HeaderElement>
       </HeaderSection>
+      <LoginModal isOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
     </Container>
   );
 };
