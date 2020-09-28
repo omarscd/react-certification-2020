@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 
 import Layout from '../../components/Layout';
-import useFetch from '../../utils/hooks/useFetch';
-
-import responses from '../../tests/fixtures/apiSearchResponse';
+import RecommendationsList from '../../components/RecommendationsList';
+import RecommendationItem from '../../components/RecommendationItem';
+import { getInfoURL, getRelatedURL, fetchData } from '../../utils/fns';
 
 const Container = styled.div`
   display: flex;
@@ -42,10 +42,13 @@ const Recommendations = styled.div`
 const VideoPage = () => {
   const { videoId } = useParams();
 
-  const { response: videoData } = useFetch(
-    `https://www.googleapis.com/youtube/v3/videos?part=id,snippet&id=${videoId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`,
-    {}
-  );
+  const [videoData, setVideo] = useState(null);
+  const [relatedData, setRelated] = useState(null);
+
+  useEffect(() => {
+    fetchData(getInfoURL(videoId)).then((data) => setVideo(data));
+    fetchData(getRelatedURL(videoId)).then((data) => setRelated(data));
+  }, [videoId]);
 
   return (
     <Layout>
@@ -57,7 +60,7 @@ const VideoPage = () => {
             src={`https://www.youtube.com/embed/${videoId}`}
           />
           {!videoData ? (
-            <div>Lading data...</div>
+            <div>Loading...</div>
           ) : (
             <>
               <div>Title: {videoData.items[0].snippet.title}</div>
@@ -68,9 +71,20 @@ const VideoPage = () => {
           )}
         </Video>
         <Recommendations>
-          {responses[0].items.map((item) => (
-            <div key={item.id.videoId}>{item.snippet.title}</div>
-          ))}
+          {!relatedData ? (
+            <div>Loading...</div>
+          ) : (
+            <RecommendationsList>
+              {relatedData.items.map((item) => (
+                <RecommendationItem
+                  key={item.id.videoId}
+                  id={item.id.videoId}
+                  title={item.snippet.title}
+                  thumbnail={item.snippet.thumbnails.default.url}
+                />
+              ))}
+            </RecommendationsList>
+          )}
         </Recommendations>
       </Container>
     </Layout>
