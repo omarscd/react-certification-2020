@@ -20,15 +20,19 @@ const FavoritesPage = () => {
   return (
     <Layout>
       <Container>
-        {favorites.map((item) => (
-          <VideoCard
-            key={item.id}
-            id={item.id}
-            thumbnail={item.thumbnail}
-            title={item.title}
-            description={item.description}
-          />
-        ))}
+        {favorites.length > 0 ? (
+          favorites.map((item) => (
+            <VideoCard
+              key={item.id}
+              id={item.id}
+              thumbnail={item.thumbnail}
+              title={item.title}
+              description={item.description}
+            />
+          ))
+        ) : (
+          <p>You don&apos;t have any favorites yet</p>
+        )}
       </Container>
     </Layout>
   );
