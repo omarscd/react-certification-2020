@@ -2,9 +2,10 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import HomePage from '../../pages/Home';
-import LoginPage from '../../pages/Login';
+import FavoritesPage from '../../pages/Favorites';
 import VideoPage from '../../pages/Video';
 import NotFound from '../../pages/NotFound';
+import Private from '../Private';
 
 const AppRouter = () => (
   <BrowserRouter>
@@ -15,9 +16,9 @@ const AppRouter = () => (
       <Route path="/video/:videoId">
         <VideoPage />
       </Route>
-      <Route exact path="/login">
-        <LoginPage />
-      </Route>
+      <Private exact path="/favorites">
+        <FavoritesPage />
+      </Private>
       <Route path="*">
         <NotFound />
       </Route>
