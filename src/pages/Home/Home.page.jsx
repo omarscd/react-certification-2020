@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import Layout from '../../components/Layout';
 import SearchContext from '../../contexts/SearchContext';
+import { getURL } from '../../utils/fns';
 import useDebounce from '../../utils/hooks/useDebounce';
 
 const Container = styled.div`
@@ -16,7 +17,7 @@ function HomePage() {
   const debouncedQuery = useDebounce(query, 400);
 
   useEffect(() => {
-    console.log(debouncedQuery);
+    console.log(getURL(debouncedQuery));
   }, [debouncedQuery]);
 
   return (
