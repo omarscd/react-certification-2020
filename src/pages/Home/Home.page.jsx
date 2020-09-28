@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from 'react';
-// import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Layout from '../../components/Layout';
 import SearchContext from '../../contexts/SearchContext';
+import VideoCard from '../../components/VideoCard';
 import { getQueryURL } from '../../utils/fns';
 import useDebounce from '../../utils/hooks/useDebounce';
 
@@ -16,13 +16,6 @@ const Container = styled.div`
   max-width: 1500px;
   padding: 0 3rem;
   justify-content: center;
-`;
-
-const Card = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 0.5rem;
-  width: 400px;
 `;
 
 function HomePage() {
@@ -39,11 +32,13 @@ function HomePage() {
       {debouncedQuery}
       <Container>
         {responses[0].items.map((item) => (
-          <Card key={item.id.videoId}>
-            <div>{item.snippet.thumbnails.high.url}</div>
-            <div>{item.snippet.title}</div>
-            <div>{item.snippet.description}</div>
-          </Card>
+          <VideoCard
+            key={item.id.videoId}
+            id={item.id.videoId}
+            thumbnail={item.snippet.thumbnails.medium.url}
+            title={item.snippet.title}
+            description={item.snippet.description}
+          />
         ))}
       </Container>
     </Layout>

@@ -13,9 +13,9 @@ const Theme = ({ children }) => {
       font: '#404647',
     },
     fontSizes: {
-      small: '1em',
-      medium: '2em',
-      large: '3em',
+      small: '1rem',
+      medium: '1.5rem',
+      large: '2rem',
     },
   };
 
