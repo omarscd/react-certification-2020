@@ -12,7 +12,7 @@ const AppRouter = () => (
       <Route exact path="/">
         <HomePage />
       </Route>
-      <Route path="/:videoId">
+      <Route path="/video/:videoId">
         <VideoPage />
       </Route>
       <Route exact path="/login">

@@ -44,7 +44,7 @@ const Description = styled.p`
 
 const VideoCard = ({ thumbnail, id, title, description }) => {
   return (
-    <Container to={`/${id}`}>
+    <Container to={`/video/${id}`}>
       <Thumbnail src={thumbnail} alt="Thumbnail, no description available" />
       <Title>{title}</Title>
       <Description>{description}</Description>

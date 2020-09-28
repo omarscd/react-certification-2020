@@ -22,7 +22,7 @@ const Title = styled.h3`
 
 const RecommendationItem = ({ id, thumbnail, title }) => {
   return (
-    <Container to={`/${id}`}>
+    <Container to={`/video/${id}`}>
       <Thumbnail src={thumbnail} />
       <Title>{title}</Title>
     </Container>
