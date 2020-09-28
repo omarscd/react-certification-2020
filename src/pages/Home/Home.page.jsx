@@ -1,13 +1,11 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import Layout from '../../components/Layout';
 import SearchContext from '../../contexts/SearchContext';
 import VideoCard from '../../components/VideoCard';
-import { getQueryURL } from '../../utils/fns';
+import { getQueryURL, fetchData } from '../../utils/fns';
 import useDebounce from '../../utils/hooks/useDebounce';
-
-import responses from '../../tests/fixtures/apiSearchResponse';
 
 const Container = styled.div`
   display: flex;
@@ -23,24 +21,29 @@ function HomePage() {
 
   const debouncedQuery = useDebounce(query, 400);
 
+  const [searchResult, setResult] = useState(null);
+
   useEffect(() => {
-    console.log(getQueryURL(debouncedQuery));
+    fetchData(getQueryURL(debouncedQuery)).then((data) => setResult(data));
   }, [debouncedQuery]);
 
   return (
     <Layout>
-      {debouncedQuery}
-      <Container>
-        {responses[0].items.map((item) => (
-          <VideoCard
-            key={item.id.videoId}
-            id={item.id.videoId}
-            thumbnail={item.snippet.thumbnails.medium.url}
-            title={item.snippet.title}
-            description={item.snippet.description}
-          />
-        ))}
-      </Container>
+      {searchResult ? (
+        <Container>
+          {searchResult.items.map((item) => (
+            <VideoCard
+              key={item.id.videoId}
+              id={item.id.videoId}
+              thumbnail={item.snippet.thumbnails.medium.url}
+              title={item.snippet.title}
+              description={item.snippet.description}
+            />
+          ))}
+        </Container>
+      ) : (
+        <div style={{ textAlign: 'center', padding: '2rem' }}>Loading...</div>
+      )}
     </Layout>
   );
 }
