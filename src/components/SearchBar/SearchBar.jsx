@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom';
 
 import SearchContext from '../../contexts/SearchContext';
 
+import searchImg from '../../images/search-24px.svg';
+
 const Form = styled.form`
   border-radius: 3px;
   display: flex;
@@ -33,7 +35,7 @@ const SearchBar = () => {
 
   return (
     <Form onSubmit={handleOnSubmit}>
-      <SearchIcon src="search-24px.svg" alt="magnifying lens" />
+      <SearchIcon src={searchImg} alt="magnifying lens" />
       <Input
         type="text"
         placeholder="Search..."

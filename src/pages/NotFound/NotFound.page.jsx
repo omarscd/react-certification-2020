@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 
 import Layout from '../../components/Layout';
 
+import notFoundGif from '../../images/404.gif';
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -26,7 +28,7 @@ function NotFoundPage() {
     <Layout>
       <Container>
         <div>
-          <img src="/404.gif" alt="page not found" />
+          <img src={notFoundGif} alt="page not found" />
         </div>
         <Message>This is not the page you are lookin for</Message>
         <HomeLink to="/">Return to home page</HomeLink>

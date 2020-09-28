@@ -6,6 +6,9 @@ import SearchBar from '../SearchBar';
 import LoginModal from '../LoginModal';
 import { useAuth } from '../../providers/Auth';
 
+import personImg from '../../images/person-24px.svg';
+import keyImg from '../../images/key-24px.svg';
+
 const Container = styled.header`
   background: ${(props) => props.theme.colors.primary};
   display: flex;
@@ -87,9 +90,9 @@ const Header = () => {
         </HeaderElement>
         <HeaderElement>
           {authenticated ? (
-            <Icon src="/person-24px.svg" alt="person" />
+            <Icon src={personImg} alt="person" />
           ) : (
-            <Icon src="/key-24px.svg" alt="key" />
+            <Icon src={keyImg} alt="key" />
           )}
         </HeaderElement>
       </HeaderSection>
