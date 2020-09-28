@@ -1,1 +1,1 @@
-export { default } from './Favorites.provider';
+export { default, useFavorites } from './Favorites.provider';

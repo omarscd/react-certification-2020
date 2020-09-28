@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 
 import Layout from '../../components/Layout';
+import ToggleFavoriteButton from '../../components/ToggleFavoriteButton';
 import RecommendationsList from '../../components/RecommendationsList';
 import RecommendationItem from '../../components/RecommendationItem';
 import { getInfoURL, getRelatedURL, fetchData } from '../../utils/fns';
@@ -70,6 +71,12 @@ const VideoPage = () => {
               <div>Loading...</div>
             ) : (
               <>
+                <ToggleFavoriteButton
+                  id={videoId}
+                  thumbnail={videoData.items[0].snippet.thumbnails.medium.url}
+                  title={videoData.items[0].snippet.title}
+                  description={videoData.items[0].snippet.description}
+                />
                 <div>Title: {videoData.items[0].snippet.title}</div>
                 <div>Description: {videoData.items[0].snippet.description}</div>
                 <div>Channel Title: {videoData.items[0].snippet.channelTitle}</div>
