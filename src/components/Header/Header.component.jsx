@@ -38,6 +38,10 @@ const NavLink = styled(Link)`
   }
 `;
 
+const Icon = styled.img`
+  margin: 0;
+`;
+
 const Header = () => {
   return (
     <Container>
@@ -55,6 +59,9 @@ const Header = () => {
       <HeaderSection>
         <HeaderElement>
           <NavLink to="/login">Log in</NavLink>
+        </HeaderElement>
+        <HeaderElement>
+          <Icon src="/key-24px.svg" alt="key" />
         </HeaderElement>
       </HeaderSection>
     </Container>
