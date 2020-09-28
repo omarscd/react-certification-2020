@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import { useFavorites } from '../../providers/Favorites';
+import { useAuth } from '../../providers/Auth';
 
 const Button = styled.button`
   text-transform: uppercase;
@@ -9,6 +10,7 @@ const Button = styled.button`
 
 const ToggleFavoriteButton = ({ id, thumbnail, title, description }) => {
   const { favorites, favoritesDispatch } = useFavorites();
+  const { authenticated } = useAuth();
 
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -36,9 +38,15 @@ const ToggleFavoriteButton = ({ id, thumbnail, title, description }) => {
   };
 
   return (
-    <Button onClick={handleOnClick}>
-      {isFavorite ? 'Remove from' : 'Add to'} favorites
-    </Button>
+    <>
+      {authenticated ? (
+        <Button onClick={handleOnClick}>
+          {isFavorite ? 'Remove from' : 'Add to'} favorites
+        </Button>
+      ) : (
+        <></>
+      )}
+    </>
   );
 };
 
