@@ -5,6 +5,8 @@ import { useAuth } from '../../providers/Auth';
 import './LoginModal.styles.scss';
 
 const LoginModal = ({ isOpen, setIsModalOpen }) => {
+  Modal.setAppElement('body');
+
   const { login } = useAuth();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
