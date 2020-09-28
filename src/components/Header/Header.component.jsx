@@ -43,7 +43,10 @@ const Header = () => {
     <Container>
       <HeaderSection>
         <HeaderElement>
-          <NavLink to="/">Open Sidebar</NavLink>
+          <NavLink to="/">Home</NavLink>
+        </HeaderElement>
+        <HeaderElement>
+          <NavLink to="/favorites">Favorites</NavLink>
         </HeaderElement>
         <HeaderElement>
           <SearchBar defaultQuery="Nimrodel" />
