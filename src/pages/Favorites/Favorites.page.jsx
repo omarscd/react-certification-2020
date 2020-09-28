@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Layout from '../../components/Layout';
+import VideoCard from '../../components/VideoCard';
+import { useFavorites } from '../../providers/Favorites';
 
 const Container = styled.div`
   display: flex;
@@ -13,9 +15,21 @@ const Container = styled.div`
 `;
 
 const FavoritesPage = () => {
+  const { favorites } = useFavorites();
+
   return (
     <Layout>
-      <Container>Favorites</Container>
+      <Container>
+        {favorites.map((item) => (
+          <VideoCard
+            key={item.id}
+            id={item.id}
+            thumbnail={item.thumbnail}
+            title={item.title}
+            description={item.description}
+          />
+        ))}
+      </Container>
     </Layout>
   );
 };
