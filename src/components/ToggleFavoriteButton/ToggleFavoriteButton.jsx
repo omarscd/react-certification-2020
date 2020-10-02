@@ -5,7 +5,13 @@ import { useFavorites } from '../../providers/Favorites';
 import { useAuth } from '../../providers/Auth';
 
 const Button = styled.button`
+  border: none;
+  font-size: ${(props) => props.theme.fontSizes.small};
+  font-weight: bold;
   text-transform: uppercase;
+
+  background: ${(props) =>
+    props.isFavorite ? props.theme.colors.warning : props.theme.colors.highlight};
 `;
 
 const ToggleFavoriteButton = ({ id, thumbnail, title, description }) => {
@@ -34,7 +40,7 @@ const ToggleFavoriteButton = ({ id, thumbnail, title, description }) => {
   return (
     <>
       {authenticated ? (
-        <Button onClick={handleOnClick}>
+        <Button onClick={handleOnClick} isFavorite={isFavorite}>
           {isFavorite ? 'Remove from' : 'Add to'} favorites
         </Button>
       ) : (

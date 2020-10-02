@@ -8,7 +8,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 4px;
-  flex-direction: column;
   margin: 0.7rem;
   max-height: 600px;
   overflow: hidden;
@@ -39,14 +38,12 @@ const Thumbnail = styled.img`
 const Title = styled.h2`
   color: ${(props) => props.theme.colors.font};
   font-size: ${(props) => props.theme.fontSizes.medium};
-  margin: 0;
   margin: 0.5rem;
 `;
 
 const Description = styled.p`
   color: ${(props) => props.theme.colors.font};
   font-size: ${(props) => props.theme.fontSizes.small};
-  margin: 0;
   overflow: hidden;
   margin: 0 0.5rem 0.5rem;
   text-overflow: ellipsis;
@@ -54,7 +51,7 @@ const Description = styled.p`
 
 const VideoCard = ({ thumbnail, id, title, description }) => {
   return (
-    <Container to={`/video/${id}`}>
+    <Container>
       <StyledLink to={`/video/${id}`}>
         <Thumbnail src={thumbnail} alt="Thumbnail, no description available" />
       </StyledLink>
