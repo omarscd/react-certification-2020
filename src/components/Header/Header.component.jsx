@@ -58,6 +58,7 @@ const Button = styled.button`
 `;
 
 const Icon = styled.img`
+  display: flex;
   margin: 0;
 `;
 
