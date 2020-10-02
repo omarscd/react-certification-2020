@@ -77,7 +77,7 @@ const Header = () => {
           </HeaderElement>
         )}
         <HeaderElement>
-          <SearchBar defaultQuery="Nimrodel" />
+          <SearchBar />
         </HeaderElement>
       </HeaderSection>
       <HeaderSection>
