@@ -9,7 +9,7 @@ const Button = styled.button`
 `;
 
 const ToggleFavoriteButton = ({ id, thumbnail, title, description }) => {
-  const { favorites, favoritesDispatch } = useFavorites();
+  const { favorites, addFavorite, removeFavorite } = useFavorites();
   const { authenticated } = useAuth();
 
   const [isFavorite, setIsFavorite] = useState(false);
@@ -20,19 +20,13 @@ const ToggleFavoriteButton = ({ id, thumbnail, title, description }) => {
 
   const handleOnClick = () => {
     if (isFavorite) {
-      favoritesDispatch({
-        type: 'REMOVE_FAVORITE',
-        id,
-      });
+      removeFavorite(id);
     } else {
-      favoritesDispatch({
-        type: 'ADD_FAVORITE',
-        favorite: {
-          id,
-          thumbnail,
-          title,
-          description,
-        },
+      addFavorite({
+        id,
+        thumbnail,
+        title,
+        description,
       });
     }
   };

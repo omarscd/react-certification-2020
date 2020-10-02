@@ -21,14 +21,36 @@ const FavoritesProvider = ({ children }) => {
   const { username, authenticated } = useAuth();
   const userFavoritesStorageKey = `${USERNAME_STORAGE_KEY}-${username}`;
 
+  const removeFavorite = (id = '') => {
+    favoritesDispatch({
+      type: 'REMOVE_FAVORITE',
+      id,
+    });
+  };
+
+  const addFavorite = (video = {}) => {
+    favoritesDispatch({
+      type: 'ADD_FAVORITE',
+      favorite: video,
+    });
+  };
+
+  const clearFavorites = () => {
+    favoritesDispatch({ type: 'CLEAR_FAVORITES' });
+  };
+
+  const populateFavorites = (videos = []) => {
+    favoritesDispatch({ type: 'POPULATE_FAVORITES', favorites: videos });
+  };
+
   useEffect(() => {
     if (authenticated) {
       const favoritesData = storage.get(userFavoritesStorageKey);
       if (favoritesData) {
-        favoritesDispatch({ type: 'POPULATE_FAVORITES', favorites: favoritesData });
+        populateFavorites(favoritesData);
       }
     } else {
-      favoritesDispatch({ type: 'CLEAR_FAVORITES' });
+      clearFavorites();
     }
   }, [authenticated]);
 
@@ -39,7 +61,15 @@ const FavoritesProvider = ({ children }) => {
   }, [favorites]);
 
   return (
-    <FavoritesContext.Provider value={{ favorites, favoritesDispatch }}>
+    <FavoritesContext.Provider
+      value={{
+        favorites,
+        addFavorite,
+        removeFavorite,
+        populateFavorites,
+        clearFavorites,
+      }}
+    >
       {children}
     </FavoritesContext.Provider>
   );
