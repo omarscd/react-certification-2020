@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 
-import SearchContext from '../../contexts/SearchContext';
+import { useSearch } from '../../providers/SearchContext';
 
 import searchImg from '../../images/search-24px.svg';
 
@@ -25,7 +25,7 @@ const SearchIcon = styled.img`
 `;
 
 const SearchBar = () => {
-  const { query, setQuery } = useContext(SearchContext);
+  const { query, setQuery } = useSearch();
   const history = useHistory();
 
   const handleOnSubmit = (e) => {

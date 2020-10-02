@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import Layout from '../../components/Layout';
-import SearchContext from '../../contexts/SearchContext';
+import { useSearch } from '../../providers/SearchContext';
 import VideoCard from '../../components/VideoCard';
 import { getQueryURL, fetchData } from '../../utils/fns';
 import useDebounce from '../../utils/hooks/useDebounce';
@@ -17,7 +17,7 @@ const Container = styled.div`
 `;
 
 function HomePage() {
-  const { query } = useContext(SearchContext);
+  const { query } = useSearch();
 
   const debouncedQuery = useDebounce(query, 400);
 
