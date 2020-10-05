@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecommendationItem renders correctly 1`] = `
+<a
+  class="sc-bdnylx djbTLE"
+  href="/video/YNZmZ4ARr38"
+>
+  <img
+    class="sc-gtssRu jwjGxM"
+    src="https://i.ytimg.com/vi/YNZmZ4ARr38/mqdefault.jpg"
+  />
+  <h3
+    class="sc-dlnjPT egPkLV"
+  >
+    Shrek Forever After (2010) - Daddy Ever After Scene (2/10) | Movieclips
+  </h3>
+</a>
+`;

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecommendationsList renders correctly 1`] = `
+<div
+  class="sc-bdnylx bMIijM"
+>
+  <h2>
+    Related Videos
+  </h2>
+</div>
+`;

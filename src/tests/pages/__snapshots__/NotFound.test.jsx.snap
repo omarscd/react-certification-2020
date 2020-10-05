@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound page renders correctly 1`] = `
+<div
+  class="container"
+>
+  <header
+    class="sc-hKFyIo jcdTAl"
+  >
+    <div
+      class="sc-eCApGN hCdAiT"
+    >
+      <div
+        class="sc-jSFkmK qmXvl"
+      >
+        <a
+          class="sc-gKAblj iUhdyg"
+          href="/"
+        >
+          Home
+        </a>
+      </div>
+      <div
+        class="sc-jSFkmK qmXvl"
+      >
+        <a
+          class="sc-gKAblj iUhdyg"
+          href="/favorites"
+        >
+          Favorites
+        </a>
+      </div>
+      <div
+        class="sc-jSFkmK qmXvl"
+      >
+        <form
+          class="sc-bdnylx hYwFxl"
+        >
+          <img
+            alt="magnifying lens"
+            class="sc-dlnjPT dGgzTM"
+            src="search-24px.svg"
+          />
+          <input
+            class="sc-gtssRu fkigkU"
+            placeholder="Search..."
+            type="text"
+            value="test"
+          />
+        </form>
+      </div>
+    </div>
+    <div
+      class="sc-eCApGN hCdAiT"
+    >
+      <div
+        class="sc-jSFkmK qmXvl"
+      >
+        <button
+          class="sc-iCoHVE kHdmrf"
+        >
+          Log out
+        </button>
+      </div>
+      <div
+        class="sc-jSFkmK qmXvl"
+      >
+        <img
+          alt="person"
+          class="sc-fujyUd hfIOzZ"
+          src="person-24px.svg"
+        />
+      </div>
+    </div>
+  </header>
+  <div
+    class="content"
+  >
+    <div
+      class="sc-pNWxx eWBObX"
+    >
+      <div>
+        <img
+          alt="page not found"
+          src="404.gif"
+        />
+      </div>
+      <p
+        class="sc-jrsJCI sdrJr"
+      >
+        This is not the page you are lookin for
+      </p>
+      <a
+        class="sc-kEqYlL guMqYO"
+        href="/"
+      >
+        Return to home page
+      </a>
+    </div>
+  </div>
+</div>
+`;
