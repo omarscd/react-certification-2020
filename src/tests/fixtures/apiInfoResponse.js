@@ -1,3 +1,4 @@
+// API response for single element detailed info
 export default {
   kind: 'youtube#videoListResponse',
   etag: '-fNK1a_baavTSgzm6-8PWOiQBxM',

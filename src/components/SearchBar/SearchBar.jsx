@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
 
 import { useSearch } from '../../providers/SearchContext';
 
@@ -24,14 +23,8 @@ const SearchIcon = styled.img`
   margin: 0;
 `;
 
-const SearchBar = () => {
+const SearchBar = ({ handleOnSubmit }) => {
   const { query, setQuery } = useSearch();
-  const history = useHistory();
-
-  const handleOnSubmit = (e) => {
-    e.preventDefault();
-    history.push('/');
-  };
 
   return (
     <Form onSubmit={handleOnSubmit}>

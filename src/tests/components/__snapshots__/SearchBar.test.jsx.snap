@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar renders correctly 1`] = `
+<form
+  class="sc-bdnylx hYwFxl"
+>
+  <img
+    alt="magnifying lens"
+    class="sc-dlnjPT dGgzTM"
+    src="search-24px.svg"
+  />
+  <input
+    class="sc-gtssRu fkigkU"
+    placeholder="Search..."
+    type="text"
+    value="Subdivisions"
+  />
+</form>
+`;

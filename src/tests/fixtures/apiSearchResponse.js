@@ -1,3 +1,4 @@
+// API response to a search query
 export default [
   {
     kind: 'youtube#searchListResponse',

@@ -5,7 +5,7 @@ const SearchContext = React.createContext();
 const useSearch = () => {
   const context = useContext(SearchContext);
   if (!context) {
-    throw new Error(`Can't use "useSearch" without a FavoritesProvider!`);
+    throw new Error(`Can't use "useSearch" without a SearchContextProvider!`);
   }
   return context;
 };

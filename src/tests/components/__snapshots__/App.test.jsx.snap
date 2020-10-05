@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders correctly 1`] = `
+<div
+  class="container"
+>
+  <header
+    class="sc-hKFyIo jcdTAl"
+  >
+    <div
+      class="sc-eCApGN hCdAiT"
+    >
+      <div
+        class="sc-jSFkmK qmXvl"
+      >
+        <a
+          class="sc-gKAblj iUhdyg"
+          href="/"
+        >
+          Home
+        </a>
+      </div>
+      <div
+        class="sc-jSFkmK qmXvl"
+      >
+        <form
+          class="sc-bdnylx hYwFxl"
+        >
+          <img
+            alt="magnifying lens"
+            class="sc-dlnjPT dGgzTM"
+            src="search-24px.svg"
+          />
+          <input
+            class="sc-gtssRu fkigkU"
+            placeholder="Search..."
+            type="text"
+            value="Subdivisions"
+          />
+        </form>
+      </div>
+    </div>
+    <div
+      class="sc-eCApGN hCdAiT"
+    >
+      <div
+        class="sc-jSFkmK qmXvl"
+      >
+        <button
+          class="sc-iCoHVE kHdmrf"
+        >
+          Log in
+        </button>
+      </div>
+      <div
+        class="sc-jSFkmK qmXvl"
+      >
+        <img
+          alt="key"
+          class="sc-fujyUd hfIOzZ"
+          src="key-24px.svg"
+        />
+      </div>
+    </div>
+  </header>
+  <div
+    class="content"
+  >
+    <div
+      style="text-align: center; padding: 2rem;"
+    >
+      Loading...
+    </div>
+  </div>
+</div>
+`;

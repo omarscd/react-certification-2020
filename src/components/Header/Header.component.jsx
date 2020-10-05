@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 import SearchBar from '../SearchBar';
@@ -65,6 +65,12 @@ const Icon = styled.img`
 const Header = () => {
   const { authenticated, logout } = useAuth();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const history = useHistory();
+
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    history.push('/');
+  };
 
   return (
     <Container>
@@ -78,7 +84,7 @@ const Header = () => {
           </HeaderElement>
         )}
         <HeaderElement>
-          <SearchBar />
+          <SearchBar handleOnSubmit={handleOnSubmit} />
         </HeaderElement>
       </HeaderSection>
       <HeaderSection>
