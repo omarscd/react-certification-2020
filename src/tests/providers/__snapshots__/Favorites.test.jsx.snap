@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FavoritesProvider Renders correctly 1`] = `
+<p>
+  Mock content
+</p>
+`;

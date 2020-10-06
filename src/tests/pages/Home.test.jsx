@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, cleanup } from '@testing-library/react';
+import { render, cleanup, screen } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
 import Home from '../../pages/Home';
 import ThemeProvider from '../../providers/Theme';
@@ -22,7 +23,6 @@ jest.mock('../../utils/fns.js', () => {
     const apiSearchResponse = require('../fixtures/apiSearchResponse');
     return Promise.resolve(apiSearchResponse[0]);
   });
-  fetchData.mockReturnValueOnce(Promise.resolve(false));
 
   return {
     getQueryURL: jest.fn(),
@@ -35,25 +35,16 @@ jest.mock('../../utils/fns.js', () => {
 describe('Home page', () => {
   afterAll(cleanup);
 
-  it('renders correctly without api response', () => {
-    const { container } = render(
-      <ThemeProvider>
-        <BrowserRouter>
-          <Home />
-        </BrowserRouter>
-      </ThemeProvider>
-    );
-    expect(container.firstChild).toMatchSnapshot();
-  });
-
-  it('renders correctly with api response', () => {
-    const { container } = render(
-      <ThemeProvider>
-        <BrowserRouter>
-          <Home />
-        </BrowserRouter>
-      </ThemeProvider>
-    );
-    expect(container.firstChild).toMatchSnapshot();
+  it('renders correctly while waiting for response', async () => {
+    await act(async () => {
+      render(
+        <ThemeProvider>
+          <BrowserRouter>
+            <Home />
+          </BrowserRouter>
+        </ThemeProvider>
+      );
+    });
+    expect(screen.getByText('Loading...')).toBeTruthy();
   });
 });

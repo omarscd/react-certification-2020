@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToggleFavoriteButton renders correctly when element is favorite 1`] = `
+<div>
+  <button
+    class="sc-bdnylx jlICRO"
+  >
+    Remove from
+     favorites
+  </button>
+</div>
+`;
+
+exports[`ToggleFavoriteButton renders correctly when element is not favorite 1`] = `
+<div>
+  <button
+    class="sc-bdnylx jWyyAs"
+  >
+    Add to
+     favorites
+  </button>
+</div>
+`;
