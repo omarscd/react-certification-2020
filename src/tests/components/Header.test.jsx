@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, cleanup, fireEvent } from '@testing-library/react';
+import { render, cleanup } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import Header from '../../components/Header';
 import ThemeProvider from '../../providers/Theme';
@@ -14,7 +14,7 @@ jest.mock('../../providers/SearchContext', () => ({
 jest.mock('../../providers/Auth', () => ({
   default: jest.fn(),
   useAuth: () => {
-    let authenticated = true;
+    let authenticated = false;
     return {
       logout: jest.fn(() => {
         authenticated = false;
@@ -24,19 +24,8 @@ jest.mock('../../providers/Auth', () => ({
   },
 }));
 
-describe('Header logged in', () => {
+describe('Header', () => {
   afterAll(cleanup);
-
-  it('renders correctly when logged in', () => {
-    const { container } = render(
-      <ThemeProvider>
-        <BrowserRouter>
-          <Header />
-        </BrowserRouter>
-      </ThemeProvider>
-    );
-    expect(container.firstChild).toMatchSnapshot();
-  });
 
   it('renders correctly when logged out', () => {
     const { container } = render(
@@ -46,8 +35,6 @@ describe('Header logged in', () => {
         </BrowserRouter>
       </ThemeProvider>
     );
-    const logOutButton = screen.getByRole('button');
-    fireEvent.click(logOutButton);
     expect(container.firstChild).toMatchSnapshot();
   });
 });

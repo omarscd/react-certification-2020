@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header logged in renders correctly when logged in 1`] = `
+exports[`Header renders correctly when logged out 1`] = `
 <header
   class="sc-hKFyIo jcdTAl"
 >
@@ -15,16 +15,6 @@ exports[`Header logged in renders correctly when logged in 1`] = `
         href="/"
       >
         Home
-      </a>
-    </div>
-    <div
-      class="sc-jSFkmK qmXvl"
-    >
-      <a
-        class="sc-gKAblj iUhdyg"
-        href="/favorites"
-      >
-        Favorites
       </a>
     </div>
     <div
@@ -56,88 +46,16 @@ exports[`Header logged in renders correctly when logged in 1`] = `
       <button
         class="sc-iCoHVE kHdmrf"
       >
-        Log out
+        Log in
       </button>
     </div>
     <div
       class="sc-jSFkmK qmXvl"
     >
       <img
-        alt="person"
+        alt="key"
         class="sc-fujyUd hfIOzZ"
-        src="person-24px.svg"
-      />
-    </div>
-  </div>
-</header>
-`;
-
-exports[`Header logged in renders correctly when logged out 1`] = `
-<header
-  class="sc-hKFyIo jcdTAl"
->
-  <div
-    class="sc-eCApGN hCdAiT"
-  >
-    <div
-      class="sc-jSFkmK qmXvl"
-    >
-      <a
-        class="sc-gKAblj iUhdyg"
-        href="/"
-      >
-        Home
-      </a>
-    </div>
-    <div
-      class="sc-jSFkmK qmXvl"
-    >
-      <a
-        class="sc-gKAblj iUhdyg"
-        href="/favorites"
-      >
-        Favorites
-      </a>
-    </div>
-    <div
-      class="sc-jSFkmK qmXvl"
-    >
-      <form
-        class="sc-bdnylx hYwFxl"
-      >
-        <img
-          alt="magnifying lens"
-          class="sc-dlnjPT dGgzTM"
-          src="search-24px.svg"
-        />
-        <input
-          class="sc-gtssRu fkigkU"
-          placeholder="Search..."
-          type="text"
-          value="test"
-        />
-      </form>
-    </div>
-  </div>
-  <div
-    class="sc-eCApGN hCdAiT"
-  >
-    <div
-      class="sc-jSFkmK qmXvl"
-    >
-      <button
-        class="sc-iCoHVE kHdmrf"
-      >
-        Log out
-      </button>
-    </div>
-    <div
-      class="sc-jSFkmK qmXvl"
-    >
-      <img
-        alt="person"
-        class="sc-fujyUd hfIOzZ"
-        src="person-24px.svg"
+        src="key-24px.svg"
       />
     </div>
   </div>
